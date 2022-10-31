@@ -123,3 +123,37 @@ const jeopardyCategories = [
         ],
     },
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function addCategory() {
+    const column = document.createElement('div')
+}
+
+jeopardyCategories.forEach(category => addCategory(category))
