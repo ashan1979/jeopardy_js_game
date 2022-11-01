@@ -152,7 +152,7 @@ const jeopardyCategories = [
 
 
 
-function addCategory() {
+function addCategory(category) {
     const column = document.createElement('div')
     column.classList.add('genre-column')
 
