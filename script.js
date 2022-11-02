@@ -209,5 +209,14 @@ function flipCard() {
     secondButton.classList.add('second-button')
     firstButton.innerHTML = this.getAttribute('data-answer-1')
     secondButton.innerHTML = this.getAttribute('data-answer-2')
+    firstButton.addEventListener('click', getResults)
+    secondButton.addEventListener('click', getResults)
     this.append(textDisplay, firstButton, secondButton)
+
+    const allCards = Array.from(document.querySelectorAll('.card'))
+    allCards.forEach(card => card.removeEventListener('click', flipCard))
+}
+
+function getResult() {
+
 }
