@@ -197,8 +197,11 @@ jeopardyCategories.forEach(category => addCategory(category))
 
 function flipCard() {
      this.getInnerHTML = ""
+     this.style.fontSize = "15px"
+     this.style.lineHeight = "30px"
     const textDisplay = document.createElement('div')
     textDisplay.classList.add('card-text')
+    textDisplay.innerHTML = this.getAttribute('data-question')
     const firstButton = document.createElement('button')
     const secondButton = document.createElement('button')
 
