@@ -180,6 +180,10 @@ function addCategory(category) {
         if (question.level === 'hard') {
             card.innerHTML = 300;
         }
+
+        card.setAttribute('data-questions', question.question)
+        card.setAttribute('data-answer-1', question.answers[0])
+        card.setAttribute('data-correct', question.correct)
     })
 }
 
