@@ -150,7 +150,7 @@ const jeopardyCategories = [
 
 
 
-
+let score = 0;
 
 function addCategory(category) {
     const column = document.createElement('div')
@@ -218,7 +218,30 @@ function flipCard() {
 }
 
 function getResult() {
+    const allCards = Array.from(document.querySelectorAll('.card'));
+    allCards.forEach(card => card.addEventListener('click', flipCard));
+
     const cardOfButton = this.parentElement
 
-    console.log('cardOfButton', cardOfButton)
+    if (cardOfButton.getAttribute('data-correct') == this.innerHTML) {
+        score = score + parseInt(cardOfButton.getAttribute('data-value'))
+        scoreDisplay.innerHTML = score
+        cardOfButton.classList.add('correct-answer')
+        setTimeout(() => {
+            while (cardOfButton.firstChild) {
+                cardOfButton.removeChild(cardOfButton,lastChild);
+            }
+            cardOfButton.getInnerHTML = cardOfButton.getAttribute('data-value')
+
+        }, 100)
+    } else {
+        cardOfButton.classList.add('wrong-answer')
+        setTimeout(() => {
+            while (cardOfButton.firstChild) {
+                cardOfButton.removeChild(cardOfButton,lastChild);
+            }
+            cardOfButton.getInnerHTML = 0;
+        }, 100 )
+    }
+    cardOfButton.removeEventListener('click', flipCard);
 }
